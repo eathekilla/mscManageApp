@@ -1,0 +1,12 @@
+<h2>Magicians</h2>
+<ul class="magicians">
+  <li *ngFor="let magician of magicians">
+    <a routerLink="=detail={{magician.id}}">
+      <span class="badge">{{magician.id}}</span>
+      {{magician.name}}
+    </a>
+    
+  </li>
+</ul>
+
+<!-- <app-magician-detail [magician] = "selectedMagician"></app-magician-detail> -->
