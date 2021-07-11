@@ -7,20 +7,26 @@ import { MagicianDetailComponent } from './magician-detail/magician-detail.compo
 import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { HttpClientModule} from '@angular/common/http'
+import { HttpClientModule} from '@angular/common/http';
+import { MagicianSearchComponent } from './magician-search/magician-search.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+
 @NgModule({
   declarations: [
     AppComponent,
     MagicianComponent,
     MagicianDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    MagicianSearchComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
