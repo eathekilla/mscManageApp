@@ -18,7 +18,8 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrls: ['./magician.component.css']
 })
 export class MagicianComponent implements OnInit {
-  displayedColumns: string[] = ['name'];//,'species','gender','house','dateOfBirth','yearOfBirth','ancestry','eyeColour','hairColour','wand'];
+  private log(message: string) {
+    this.messageService.add(`MagicianService: ${message}`);}
   private houses: String[] = ["Gryffindor", "Slytherin", "Hufflepuff", "Ravenclaw"];
   private searchTerms = new Subject<string>();
   magician$!: Observable<Magician[]>;
@@ -26,11 +27,23 @@ export class MagicianComponent implements OnInit {
   magicianhouses: String[] = ["Gryffindor", "Slytherin", "Hufflepuff", "Ravenclaw"];
   public aux: any[];
   constructor(private http: HttpClient, private magicianService: MagicianService, private messageService: MessageService) { }
-
-  ngOnInit() {
+  search(term:string):void{
+    this.searchTerms.next(term);
+  }
+  ngOnInit():void{
     // this.searchMagician("");
     // this.sortByName();
-    this.getMagicians()
+    this.getMagicians();
+    this.magician$=this.searchTerms.pipe(
+      // wait 300ms after each keystroke before considering the term
+      debounceTime(300),
+
+      // ignore new term if same as previous term
+      distinctUntilChanged(),
+
+      // switch to new search observable each time the term changes
+      switchMap((term: string) => this.searchMagician2(term)),
+    );
 
   }
   getMagicians(): void {
@@ -44,6 +57,7 @@ export class MagicianComponent implements OnInit {
     this.aux = this.aux.sort((a, b) => a.name.split(" ", 2)[1].localeCompare(b.name.split(" ", 2)[1]));
   }
 
+  
   searchMagician(term: string) {
     if (term == "") {
       this.getMagicians();
@@ -51,6 +65,23 @@ export class MagicianComponent implements OnInit {
     else {
       this.getMagicians();
       this.aux = this.aux.filter(aux => aux.house == term);
+    }
+
+  }
+
+  ancestryMagician(term: string) {
+    if (term == "") {
+      this.getMagicians();
+    }
+    else {
+      this.getMagicians();
+      term.toUpperCase();
+      this.aux = this.aux.filter(aux => aux.gender== term || aux.species == term|| aux.dateOfBirth == term|| 
+        aux.yearOfBirth == term|| aux.ancestry == term|| aux.eyeColour == term|| aux.hairColour == term||
+         aux.wand.wood == term|| aux.wand.core == term|| aux.wand.length == term || aux.patronus == term
+         || aux.hogwartsStudent == term || aux.hogwartsStaff == term || aux.actor == term
+         || aux.alive == term || aux.alive == term|| aux.name.split(" ", 2)[1] == term || aux.name.split(" ", 2)[0] == term);
+      console.log(this.aux)
     }
 
   }

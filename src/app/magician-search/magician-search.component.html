@@ -1,0 +1,11 @@
+<div id="search-component">
+  <label for="search-box">Magician Search</label>
+  <input #searchBox id="searchBox" (Click)="search(searchBox.value)" />
+  <ul class="search-result">
+    <li *ngFor="let magician of magician$ | async" >
+      <a>
+        {{magician.name}}
+      </a>
+    </li>
+  </ul>
+</div>

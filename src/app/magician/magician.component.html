@@ -18,13 +18,21 @@
               <mat-menu #menu="matMenu">
                 <button mat-menu-item (click)="sortByLastName()">Sort by lastname</button>
                 <button mat-menu-item (click)="sortByName()">Sort by Name</button>
+                <button mat-menu-item (click)='ancestryMagician("male")'>Nombre</button>
+                <input #searchBox id="searchBox" />
               </mat-menu>
               <button mat-raised-button color="link" (click)='searchMagician(""
               )'>Reset</button>
+              
+                <input #searchBox id="searchBox" value="Harry"/>
+              
+              <button mat-raised-button color="link" (click)="ancestryMagician(searchBox.value)  ">Search</button>
             </div>
+            
         </div>
       </div>
     </div>
+    <div id="magician-component">
     <div row>
       <div class="col-md-12 align-self-center">
         <mat-grid-list cols="3" rowHeight="400px">
@@ -76,5 +84,6 @@
         </mat-grid-list>
       </div>
     </div>
+  </div>
   </div>
 </div>
