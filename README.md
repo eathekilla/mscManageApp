@@ -2,13 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.9.
 
-## Development server
+## The problem
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Right now, in Newshore we have a big problem. One of our customers, MSE (Magician School Education) wants to develop a new application to give them the opportunity of identifying all their magician stude nt and professors. According to this, we need to develop the following application: As you can see this is a key process in our customer's business so our solution m ust be implemented with high accuracy.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 
 
 ## Install Dependences
 
