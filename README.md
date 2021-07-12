@@ -20,4 +20,4 @@ You must execute the command (npm install) - in order to make the application wo
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Description of the application
-The application is displayed in a home where all students are shown, and where buttons appear for each house, that selecting them shows the students of each house, there is a small menu with the sorting options and a reset button to see all students again.
+The application is displayed in a home where all students are shown, and where buttons appear for each house, that selecting them shows the students of each house, there is a small menu with the sorting options and a reset button to see all students again. Students can be searched by first or last name
