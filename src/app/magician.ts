@@ -3,10 +3,20 @@ export interface Magician {
     species: string;
     gender: string;
     house: string;
-    dateOfBrith:string;
-    yearOfBirth:number;
+    dateOfBirth:string;
+    yearOfBirth:any;
     ancestry: string;
     eyeColour: string;
     hairColour:string;
-    wand: string [];
+    wand:{
+      wood:string;
+      core:string;
+      length:any;
+    };
+    patronus:string;
+    hogwartsStudent:boolean;
+    hogwartsStaff:boolean;
+    actor:string;
+    alive:boolean;
+    image:string; 
   }

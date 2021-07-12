@@ -81,3 +81,56 @@
     justify-content: center;
     width: 120px;
   }
+  table {
+    width: 100%;
+  }
+  demo-table {
+    width: 100%;
+  }
+  
+  .mat-column-demo-position {
+    width: 32px;
+    border-right: 1px solid currentColor;
+    padding-right: 24px;
+    text-align: center;
+  }
+  
+  .mat-column-demo-name {
+    padding-left: 16px;
+    font-size: 20px;
+  }
+  
+  .mat-column-demo-weight {
+    font-style: italic;
+  }
+  
+  .mat-column-demo-symbol {
+    width: 32px;
+    text-align: center;
+    font-weight: bold;
+  }
+  .example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.mat-gryffindor {
+  background-color: #2a623d;
+  color: #ffff;
+}
+.mat-slytherin {
+  background-color: #2a623d;
+  color: #fff;
+}
+.mat-hufflepuff {
+  background-color: #ecb939;
+  color: #fff;
+}
+.mat-ravenclaw {
+  background-color: #222f5b;
+  color: #fff;
+}

@@ -1,24 +1,80 @@
-<h2>Magicians</h2>
+<div style="margin: 2%;">
+  <div class="container">
+    <div row>
+      <div class="container" >
+        <div row>
+          <div class="col-md-12 align-self-center">
+            <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+              <button mat-raised-button color="warn" (click)='searchMagician("Gryffindor"
+              )'>Gryffindor</button>
+              <button mat-raised-button color="slytherin" (click)='searchMagician("Slytherin"
+              )'>Slytherin</button>
+              <button mat-raised-button color="hufflepuff" (click)='searchMagician("Hufflepuff"
+              )'>Hufflepuff</button>
+              <button mat-raised-button color="ravenclaw" (click)='searchMagician("Ravenclaw"
+              )'>Ravenclaw</button>
+              <button mat-raised-button color="link" [matMenuTriggerFor]="menu">Sort
+                By</button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="sortByLastName()">Sort by lastname</button>
+                <button mat-menu-item (click)="sortByName()">Sort by Name</button>
+              </mat-menu>
+              <button mat-raised-button color="link" (click)='searchMagician(""
+              )'>Reset</button>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div row>
+      <div class="col-md-12 align-self-center">
+        <mat-grid-list cols="3" rowHeight="400px">
+          <mat-grid-tile
+            *ngFor="let item of aux"
+            [colspan]="1"
+            [rowspan]="1.5"
+            [style.background]="">
+            <div row>
+              <div class="Container">
+                <mat-card class="example-card" style="width: 400px;">
+                  <mat-card-header>
+                    <div mat-card-avatar></div>
+                    <mat-card-title><b style="font-size:30px">{{item.name}}</b></mat-card-title>
+                    <mat-card-subtitle>{{item.species}}</mat-card-subtitle>
+                  </mat-card-header>
+                  <img mat-card-image src="{{item.image}}" alt="Photo of
+                    {{item.name}}" style="width:250px;height: 280px;" class="mx-auto d-block">
+                  <mat-card-content>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                      <div>
+                        <b>Species: </b><p>{{item.species}}</p>
+                        <b>Gender: </b><p>{{item.gender}}</p>
+                        <b>House: </b><p>{{item.house}}</p>
+                        <b>Gender: </b><p>{{item.gender}}</p>
+                        <b>Date of Birth: </b><p>{{item.dateOfBirth}}</p>
+                      </div>
+                      <div> <p> </p>  </div>
 
-<ul class="magicians">
-  <li *ngFor="let item of array">
-      <span class="badge">{{item.house}}</span>
-      {{item.name}}
-  </li>
-</ul>
-
-<button mat-button color="primary" (click)="sortByLastName()">Sort by last name</button>
-<button mat-button color="primary" (click)="sortByName()">Sort by Name</button>
-
-
-<div id="search-component">
-  <label for="search-box">Magician Search</label>
-  <button (Click)="sortHouse()" >Sort By House</button>
-  <ul class="search-result">
-    <li *ngFor="let item of magician$ | async" >
-      <a>
-        {{item.name}}
-      </a>
-    </li>
-  </ul>
+                      <div>
+                        <b>Year Of Brith: </b><p>{{item.yearOfBirth}}</p>
+                        <b>Ancestry: </b><p>{{item.ancestry}}</p>
+                        <b>Eye Colour: </b><p>{{item.eyeColour}}</p>
+                        <b>Hair Colour: </b><p>{{item.hairColour}}</p>
+                        
+                      </div>
+                    </div><div class="tex.align-self-center">
+                      <b>Wand: </b><p>Wood: {{item.wand.wood}}, Core: {{item.wand.core}}, Length: {{item.wand.length}}</p>
+                    </div>
+                    
+                    
+                  </mat-card-content>
+                  <mat-card-actions>
+                  </mat-card-actions>
+                </mat-card>
+              </div>
+            </div>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+    </div>
+  </div>
 </div>
